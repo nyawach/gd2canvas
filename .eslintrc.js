@@ -5,12 +5,20 @@ module.exports = {
     browser: true,
     node: true
   },
-  extends: 'standard',
+  extends: 'airbnb',
   // required to lint *.vue files
   plugins: [
     'html'
   ],
   // add your custom rules here
-  rules: {},
-  globals: {}
+  rules: {
+    semi: 0,
+    'space-before-function-paren': 0,
+    'import/no-unresolved': [2, {
+      ignore: ['^~']
+    }],
+  },
+  globals: {
+    window: true,
+  },
 }

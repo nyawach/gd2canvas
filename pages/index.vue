@@ -9,9 +9,11 @@ section.container
 import Logo from '~/components/Logo.vue'
 
 export default {
+  name: 'index',
+  options: {},
   components: {
-    Logo
-  }
+    Logo,
+  },
 }
 </script>
 

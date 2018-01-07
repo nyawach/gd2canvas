@@ -40,6 +40,14 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
-  }
+    },
+    vendor: ['pixi.js', 'three-js'],
+    postcss: [
+      require('autoprefixer'),
+      require('css-mqpacker'),
+    ]
+  },
+  css: [
+    'reset.css/reset.css',
+  ]
 }
