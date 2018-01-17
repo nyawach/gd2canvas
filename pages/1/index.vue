@@ -5,32 +5,35 @@ section.container
 </template>
 
 <script>
-import * as PIXI from 'pixi.js'
+import Basic from '../../js/class/Basic'
 
 export default {
   name: 'index-1',
+
   data: () => ({
-    app: null,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    basic: null,
   }),
+
   mounted () {
-    this.app = new PIXI.Application(
-      this.width,
-      this.height,
-      {
-        view: this.$refs.canvas,
-      },
-    )
-    const g = new PIXI.Graphics()
-    g.beginFill(0xfffff, 1)
-    g.lineStyle(10, 0x00ff00, 1)
-    g.drawRect(100, 100, 50, 50)
-    g.endFill()
-    this.app.stage.addChild(g)
-    this.app.render(this.app.stage)
-    this.app.start()
+    this.basic = new Basic({
+      width: this.width,
+      height: this.height,
+      canvas: this.$refs.canvas,
+    })
+
+    this.basic.start()
   },
+
+  destroyed() {
+    if (this.basic) this.basic.stop()
+  },
+
+  head: () => ({
+    title: '',
+    meta: [
+      { hid: 'description', name: 'description', content: '' },
+    ],
+  }),
 }
 </script>
 
