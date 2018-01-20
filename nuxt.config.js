@@ -46,6 +46,10 @@ module.exports = {
         loader: 'shader-loader',
         exclude: /(node_modules)/,
       })
+
+      config.resolve.alias['vue'] = ctx.dev ? 'vue/dist/vue.runtime.esm.js' : 'vue/dist/vue.runtime.min.js'
+
+      config.devtool = ctx.dev ? 'cheap-module-eval-source-map' : false
     },
     vendor: ['pixi.js', 'three-js'],
     postcss: [
