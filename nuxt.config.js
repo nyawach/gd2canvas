@@ -38,9 +38,14 @@ module.exports = {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         })
       }
+      config.module.rules.push({
+        test: /\.(fs|vs|glsl)$/,
+        loader: 'shader-loader',
+        exclude: /(node_modules)/,
+      })
     },
     vendor: ['pixi.js', 'three-js'],
     postcss: [
