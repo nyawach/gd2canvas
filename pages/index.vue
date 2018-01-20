@@ -3,7 +3,7 @@ section.container
   h1.title
     | gd2canvas
   ul.list
-    li.item(v-for="link in linkList"): a.link(:href="`/${link}/`") {{ link }}
+    li.item(v-for="link in linkList"): router-link.link(:to="`/${link}/`") {{ link }}
 </template>
 
 <script>

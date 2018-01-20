@@ -1,11 +1,10 @@
 <template lang="pug">
 section.container
-  h1.title テスト
   canvas#canvas(ref="canvas")
 </template>
 
 <script>
-import Basic from '../../js/class/Basic'
+import Basic from '../../assets/js/class/Basic'
 
 export default {
   name: 'index-1',
@@ -16,8 +15,6 @@ export default {
 
   mounted () {
     this.basic = new Basic({
-      width: this.width,
-      height: this.height,
       canvas: this.$refs.canvas,
     })
 
