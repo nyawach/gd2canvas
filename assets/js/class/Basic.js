@@ -1,18 +1,16 @@
 import * as PIXI from 'pixi.js'
 import { TweenMax, Bounce } from 'gsap'
+import fs from '../../materials/fs/colorful.fs'
+import vs from '../../materials/vs/basic.vs'
 
 class BasicFilter extends PIXI.Filter {
   constructor() {
-    const vs = null
-    const fs = `
-      precision mediump float;
-
-      void main(void) {
-        vec4 color = vec4(0.0, 1.0, 0.0, 0.0);
-        gl_FragColor = color;
-      }
-    `
-    const uniforms = {}
+    const uniforms = {
+      time: {
+        type: '1f',
+        value: 0.0,
+      },
+    }
 
     super(
       // vertex shader
@@ -74,6 +72,9 @@ export default class Basic {
 
   start() {
     this.app.start()
+    this.app.ticker.add(() => {
+      this.filter.uniforms.time += this.app.ticker.elapsedMS * 0.001;
+    })
   }
 
   stop() {
