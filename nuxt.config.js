@@ -55,5 +55,8 @@ module.exports = {
   },
   css: [
     'reset.css/reset.css',
-  ]
+  ],
+  generate: {
+    dir: 'docs',
+  },
 }
