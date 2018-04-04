@@ -17,6 +17,7 @@ module.exports = {
     'import/no-unresolved': [2, {
       ignore: ['^~']
     }],
+    'no-param-reassign': 0,
   },
   globals: {
     window: true,

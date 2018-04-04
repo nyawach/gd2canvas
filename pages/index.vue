@@ -13,6 +13,7 @@ export default {
   data: () => ({
     linkList: [
       '1',
+      'bubble',
     ],
   }),
 }
